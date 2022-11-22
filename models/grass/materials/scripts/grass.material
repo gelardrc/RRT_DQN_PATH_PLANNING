@@ -1,0 +1,13 @@
+material grass/green
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture grass.png
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="gui" value="False"/>
+        <arg name="world_name" value="/home/gelo/catkin_python3/src/rl_uav_navigation_2/worlds/training_world.world"/>
+        <arg name="debug" value="false"/>
+        <arg name="verbose" value="false"/>
+        <arg name="paused" value="false"/>
+        <arg name="respawn_gazebo" value="false"/>
+    </include>
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="gui" value="true"/>
+        <arg name="world_name" value="worlds/empty.world"/>
+        <arg name="debug" value="false"/>
+        <arg name="verbose" value="false"/>
+        <arg name="paused" value="false"/>
+        <arg name="respawn_gazebo" value="false"/>
+    </include>
+    <node name="dy_objs" pkg="rl_uav_navigation_2" type="dynamic_objs.py" output="screen"/>
+</launch>
