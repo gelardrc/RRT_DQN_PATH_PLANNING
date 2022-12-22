@@ -1,3 +1,0 @@
-<launch>
-  <node name="dynamic_objs" pkg="rl_uav_navigation_2" type="dynamic_objs.py" output="screen"/>
-</launch>
