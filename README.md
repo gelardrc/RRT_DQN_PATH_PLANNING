@@ -16,7 +16,9 @@ ________________________________________________________________________________
 
 [1.Requeriments](#requeriments)
 
+[2.Project structure](#structure)
 
+[3.Explainning Scripts files](#scripts)
 ___________________________________________________________________________________________________________________________________________________
 
 
@@ -36,8 +38,32 @@ https://dev.px4.io/v1.11_noredirect/en/setup/dev_env_linux_ubuntu.html
 
 Now install mavros (in this work I installed from source, without problem)
 
+sudo apt-get install ros-melodic-mavros ros-melodic-mavros-extras
 
+obs : You will probably need to install other standard ros-packges, like rospy and some gazebo messages. Since they fit in any project, you probblaby will have them already installed into your ros workspace 
 
+_____________________________________________________________________________________________________________________________________________________
 
+**2 - Project Structure :**  <a name="structure"></a>
+
+This project has the structure of a catkin-ros package where : 
+
+Directorys:
+
+Models -- >  Contain the models used in simulations ( most of them are already in gazebo standard models, but these has little changes)
+
+Launch -- >  Has the compile of nodes you need to use to Start simulations and tests for this project
+
+Scripts -->  Is where the actually python and jupyternotebooks are stored
+
+Worlds  -->  Contain the files that describe the worlds in gazebo simulation
+
+data    -->  Contain some infomation about the data acquired during tests and simulations
+
+______________________________________________________________________________________________________________________________________________________
+
+**3 - Scripts files :**  <a name="scripts"></a>
+
+The work has four major pieces of codes, that can be found in scripts file. 
 
 
