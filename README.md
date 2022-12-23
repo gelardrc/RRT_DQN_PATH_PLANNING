@@ -66,4 +66,18 @@ ________________________________________________________________________________
 
 The work has four major pieces of codes, that can be found in scripts file. 
 
+![alt text](https://drive.google.com/uc?export=view&id=1uzo2l9fdNdYq-qMNXdIfdAgzsm68Uisf)
+
+Alg_trieno_python_simu.ipynb -- > Is the notebook used that actually train the DQN, save and create the file last_brain.pth, that is the DQN saved model.
+
+agent.py --> Is where we start all things atached to the agent like sensores, mission messages, actions and son on.....
+
+world_builder --> Is the core of the simulation, it started gelo.launch (px4+mavros nodes) and create and attualize the envionment in gazebo.
+
+mission_planner.py --> That is just a normal RRT implementation, but taking into account the models create in world_builder. It also sends a message to agent.py, with the planned mission.
+
+That is how the nodes commucate to each other using ROS messages and topics.
+
+![alt text](https://drive.google.com/uc?export=view&id=1ja95hUccOdFtAy7Cu1TDQo_8BGi5HkLw)
+
 
