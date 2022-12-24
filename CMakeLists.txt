@@ -162,7 +162,6 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
  catkin_install_python(PROGRAMS
-   scripts/truck_movement.py
    scripts/agent.py
    scripts/world_builder.py
    scripts/dynamic_objs.py
