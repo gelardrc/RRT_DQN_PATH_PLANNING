@@ -19,6 +19,10 @@ ________________________________________________________________________________
 [2.Project structure](#structure)
 
 [3.Explainning Scripts files](#scripts)
+
+[4.Node structure](#nodes)
+
+[5.Run the project](#run)
 ___________________________________________________________________________________________________________________________________________________
 
 
@@ -50,15 +54,15 @@ This project has the structure of a catkin-ros package where :
 
 Directorys:
 
-Models -- >  Contain the models used in simulations ( most of them are already in gazebo standard models, but these have little changes)
+Models &rarr;  Contain the models used in simulations ( most of them are already in gazebo standard models, but these have little changes)
 
-Launch -- >  Has the compiled of nodes you need to use to Start simulations and tests for this project
+Launch &rarr;  Has the compiled of nodes you need to use to Start simulations and tests for this project
 
-Scripts -->  Is where the actual python and jupyternotebooks are stored
+Scripts &rarr;  Is where the actual python and jupyternotebooks are stored
 
-Worlds  -->  Contain the files that describe the worlds in gazebo simulation
+Worlds  &rarr;  Contain the files that describe the worlds in gazebo simulation
 
-data    -->  Contain some information about the data acquired during tests and simulations
+data    &rarr;  Contain some information about the data acquired during tests and simulations
 
 ______________________________________________________________________________________________________________________________________________________
 
@@ -68,17 +72,46 @@ The work has four major pieces of codes, that can be found in scripts directory.
 
 ![alt text](https://drive.google.com/uc?export=view&id=1uzo2l9fdNdYq-qMNXdIfdAgzsm68Uisf)
 
-Alg_trieno_python_simu.ipynb -- > Is the notebook used that actually train the DQN, save and create the file last_brain.pth, that is the DQN saved model.
+**Alg_trieno_python_simu.ipynb &rarr;** Is the notebook used that actually train the DQN, save and create the file last_brain.pth, that is the DQN saved model.
 
-agent.py --> Is where we start all things attached to the agent like sensors, mission messages, actions and so on.....
+**agent.py &rarr;** Is where we start all things attached to the agent like sensors, mission messages, actions and so on.....
 
-world_builder --> Is the core of the simulation, it started gelo.launch (px4+mavros nodes) and create and actualize the environment in gazebo.
+**world_builder &rarr;** Is the core of the simulation, it started gelo.launch (px4+mavros nodes) and create and actualize the environment in gazebo.
 
-mission_planner.py --> That is just a normal RRT implementation, but taking into account the models create in world_builder. It also sends a message to agent.py, with the planned mission.
+**mission_planner.py &rarr;** That is just a normal RRT implementation, but taking into account the models create in world_builder. It also sends a message to agent.py, with the planned mission.
+
+________________________________________________________________________________________________________________________________________________________
+
+**4 - Nodes Structure:**  <a name="nodes"></a>
 
 That is how the nodes communicate to each other using ROS messages and topics.
 
 ![alt text](https://drive.google.com/uc?export=view&id=1ja95hUccOdFtAy7Cu1TDQo_8BGi5HkLw)
+
+
+________________________________________________________________________________________________________________________________________________________
+
+**5 - Run the project**  <a name="run"></a>
+
+> cd your_catkin_workspace
+
+> git clone https://github.com/gelardrc/RRT_DQN_PATH_PLANNING.git
+
+> copy and paste all /moddels/* to  ~/.gazebo/models  (its important because world_builder points to ~/.gazebo/models)
+
+> copy and paste gelo.launch (maybe you will need to chmod +x gelo.launch ) into PX4-Autopilot/launch
+
+> roslaunch px4 gelo.launch  (if you are using px4 package inside catkin, reminder to exports paths, in other to gazebo and ros uptade paths or just update and source gelo_setup.bash with you own path)
+
+Wait until gazebo opens, and try a takeoff / land commander, to inspect if everything is ok.
+
+> python ./world_builder.py   
+
+> python ./mission_planner.py
+
+>rosbag record -a
+
+> python ./agent.py   (## in agent.py you can choose on main function, if you want to test a Dqn or train a Dqn into gazebo world, you just nedd to call them on main function )
 
 
 
