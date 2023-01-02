@@ -94,24 +94,26 @@ ________________________________________________________________________________
 **5 - Run the project**  <a name="run"></a>
 
 > cd your_catkin_workspace
-
+>
 > git clone https://github.com/gelardrc/RRT_DQN_PATH_PLANNING.git
-
-> copy and paste all /moddels/* to  ~/.gazebo/models  (its important because world_builder points to ~/.gazebo/models)
-
+>
+> copy and paste all /moddels/* to  ~/.gazebo/models  (it's important because world_builder points to ~/.gazebo/models)
+>
 > copy and paste gelo.launch (maybe you will need to chmod +x gelo.launch ) into PX4-Autopilot/launch
-
-> roslaunch px4 gelo.launch  (if you are using px4 package inside catkin, reminder to exports paths, in other to gazebo and ros uptade paths or just update and source gelo_setup.bash with you own path)
+>
+> roslaunch px4 gelo.launch  (If you are using px4 package inside catkin, reminder to exports paths, in other to gazebo and ros update paths or just update and source gelo_setup.bash with your own path)
 
 Wait until gazebo opens, and try a takeoff / land commander, to inspect if everything is ok.
 
 > python ./world_builder.py   
-
+>
 > python ./mission_planner.py
-
+>
 >rosbag record -a
+>
+> python ./agent.py   
 
-> python ./agent.py   (## in agent.py you can choose on main function, if you want to test a Dqn or train a Dqn into gazebo world, you just nedd to call them on main function )
+**Obs :** In agent.py you can choose on main function, if you want to test a Dqn or train a Dqn into gazebo world, you just need to call them on main function 
 
 
 
